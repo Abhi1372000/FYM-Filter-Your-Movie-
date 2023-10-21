@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Filter Your Movie</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&family=Pixelify+Sans&display=swap');
+    </style>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />       
 </head>
+
 <body>
-    
+    <div id="navbar">
+        <h1 class="navbarTitle">Filter Your Movie</h1>
+        <div class="navbarContainer">
+            <nav class="nav">
+                <a href="#" class="navLinks">Home</a>
+                <a href="#" class="navLinks">Movies</a>
+                <a href="#" class="navLinks">TVShows</a>
+            </nav>
+            <div class="searchBarContainer">
+                <input type="text" name="searchBar">
+                <button><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <div class="optionContainer">
+            <button id="optionSort"><i class="fa-solid fa-arrow-down-short-wide fa-2xl" style="color: #000000;"></i></button>
+            <button id="optionFilter"><i class="fa-solid fa-filter fa-2xl" style="color: #000000;"></i></button>
+        </div>
+        <div class="moviesContainer">movies</div>
+    </div>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>
+
 </html>
