@@ -93,15 +93,44 @@ body{
     border-radius: 0.5rem;
 }
 
+.contentSwitcher{
+   border: 0.3rem solid white;
+   border-radius: 0.5rem;
+   background-color: #000;
+}
+
+.switcher{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EEEEEE;
+    font-size: x-large;
+    font-weight: 500;
+}
+.switchName{
+    margin: 0 0.5rem;
+}
+
+.switches{
+    margin: 0.5rem 0.5rem;
+    padding: 0 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    
+}
+
+.switches:hover{
+    background-color: red;
+}
+
 .optionContainer{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    
+    justify-content: space-between;
     border-radius: 0.5rem;
 }
 
-.optionContainer button{
+.filterContainer button{
     border: none;
     height: 2.2rem;
     width: 3rem;
@@ -110,14 +139,6 @@ body{
     cursor: pointer;
 }
 
-.optionContainer button{
-    border: none;
-    height: 2.2rem;
-    width: 3rem;
-    margin: 0rem 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-}
 
 .optionContainer button:hover{
     background-color: var(--lightPrime);

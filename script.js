@@ -5,20 +5,60 @@ const  headers = {
   Authorization: `Bearer ${API_KEY}`
 }
 
+let contentSwitchFlag = true
 
 
 async function fetchGenere() {
   const endpoint = '/genre/movie/list'
     // const apiUrl =  `${BASE_API}${endpoint}`;
-
+    let result =  []
     await axios.get(`${BASE_API}${endpoint}`, {headers})
       .then(response => {
-        console.log(response.data, typeof(response.data))
+        console.log(response.data.genres)
       })
       .catch(error => {
-        console.error('Error fetching data:', error);
+        result = ("genres",error)
       });
+      return result
+    }
+
+
+
+
+
+const tvSwitch = document.querySelector(".tvShowsSwitche")
+const moviesSwitch = document.querySelector(".moviesSwitch")
+
+
+function contentToRender(){
+  if(contentSwitchFlag === true){
+    console.log("movie")
+    moviesSwitch.style.backgroundColor = "red"
+    tvSwitch.style.backgroundColor = "black"
+  }else{
+    console.log("tv-Show")
+    tvSwitch.style.backgroundColor = "red"
+    moviesSwitch.style.backgroundColor = "black"
   }
+}
+
+
+tvSwitch.addEventListener("click",()=>{
+  if (contentSwitchFlag === true){
+    contentSwitchFlag = false;
+    contentToRender();
+  }
+})
+
+moviesSwitch.addEventListener("click",()=>{
+  if (contentSwitchFlag === false){
+    contentSwitchFlag = true;
+    contentToRender();
+  }
+})
+
+
+
 
 
 
@@ -40,9 +80,10 @@ async function fetchData() {
   
   // Call the fetchData function when the page loads
   
-  function onWindowLoad(){
-    fetchGenere();
-    fetchData();
+function onWindowLoad(){
+  fetchGenere();
+  fetchData();
+  contentToRender();
   }
   
   
