@@ -11,6 +11,7 @@
     --lightPrime: #787A91;
     --lightSecond: #EEEEEE;
     --black: #000;
+    --skyBlue: #38BDF8;
 }
 
 body{
@@ -28,9 +29,12 @@ body{
 }
 
 .navbarTitle{
-    font-size: 2.5rem;
-    color: var(--lightSecond);
+    font-size: 2rem;
+    color: black;
     cursor: pointer;
+    background-color: var(--skyBlue);
+    padding: 0 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .navbarContainer{
@@ -66,6 +70,7 @@ body{
     height: 2.2rem;
     width: 15rem;
     border-radius: 0.5rem;
+    padding: 0 0.25rem;
 
 }
 
@@ -143,3 +148,72 @@ body{
 .optionContainer button:hover{
     background-color: var(--lightPrime);
 }
+
+.contenetContainer{
+    padding: 0.25rem;
+}
+.movieCardContainer{
+    padding: 0.25rem;
+}
+
+.movieCard{
+    width: 322px;
+    height: 502px;
+    margin: 25px;
+    border: 5px solid white;
+    border-radius: 0.5rem;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.movieCardContainer{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.cardImage{
+    width: 312px;
+    height: 492px;
+    z-index: 1;
+    transition: transform ease-out 0.7s;
+    >img{
+        width: 312px;
+        height: 492px;
+        
+    }
+
+}
+
+.movieDetails{
+    position: absolute;
+    border-radius: 0.5rem;
+    top: 90%;
+    width: 312px;
+    height: 492px;
+    background: #EEEEEE;
+    color: #000;
+    transition: ease-out 0.7s;
+    padding: 0.5rem;
+    z-index: 2;
+    >.titleRating{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.movieCard:hover{
+    >.cardImage{
+        transform: scale(1.1);
+    }
+}
+
+.movieCard:hover{
+    >.movieDetails{
+        color: #EEEEEE;
+        top: 0;
+        background-color: #07070791;
+    }
+    
+}
+
