@@ -157,7 +157,7 @@ body{
 }
 
 .movieCard{
-    width: 322px;
+    width: 362px;
     height: 502px;
     margin: 25px;
     border: 5px solid white;
@@ -173,12 +173,12 @@ body{
 }
 
 .cardImage{
-    width: 312px;
+    width: 362px;
     height: 492px;
     z-index: 1;
     transition: transform ease-out 0.7s;
     >img{
-        width: 312px;
+        width: 362px;
         height: 492px;
         
     }
@@ -188,8 +188,8 @@ body{
 .movieDetails{
     position: absolute;
     border-radius: 0.5rem;
-    top: 90%;
-    width: 312px;
+    top: 85%;
+    width: 362px;
     height: 492px;
     background: #EEEEEE;
     color: #000;
@@ -199,7 +199,18 @@ body{
     >.titleRating{
         display: flex;
         justify-content: space-between;
+        >p{
+            padding: 0.5rem;
+        }
     }
+}
+
+.title{
+    width: 80%;
+}
+
+.rating{
+    width: 20%;
 }
 
 .movieCard:hover{
