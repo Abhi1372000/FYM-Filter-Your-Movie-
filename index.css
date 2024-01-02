@@ -1,230 +1,253 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Kanit', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
 }
 
-:root{
-    --prime: #0F044C;
-    --second: #141E61;
-    --lightPrime: #787A91;
-    --lightSecond: #EEEEEE;
-    --black: #000;
-    --skyBlue: #38BDF8;
+:root {
+  --prime: #0f044c;
+  --second: #141e61;
+  --lightPrime: #787a91;
+  --lightSecond: #eeeeee;
+  --black: #000;
+  --blackII: #333333;
+  --skyBlue: #38bdf8;
 }
 
-body{
-    background-color: var(--lightSecond);
+body {
+  background-color: var(--blackII);
 }
 
-#navbar{
-    margin: 0.5em;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--black);
+/* higlightingmenus start */
+#filterMenu {
+  display: none;
+}
+#sortMenu {
+  display: none;
 }
 
-.navbarTitle{
-    font-size: 2rem;
-    color: black;
-    cursor: pointer;
-    background-color: var(--skyBlue);
-    padding: 0 0.5rem;
-    border-radius: 0.5rem;
+.hilightMenu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+/* higlightingmenus start */
+
+#navbar {
+  margin: 0.5em;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black);
 }
 
-.navbarContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 84%;
-
+.navbarTitle {
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  background-color: var(--skyBlue);
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.nav{
-    display: flex;
-    justify-content: space-between;
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84%;
 }
 
-.navLinks{
-    font-size: 1.5rem;
-    height: inherit;
-    margin: 0rem 2rem;
-    font-weight: 650;
-    color: var(--lightSecond);
-    text-decoration: none;
+.nav {
+  display: flex;
+  justify-content: space-between;
 }
 
-.navLinks:hover{
-    color: var(--lightPrime);
-    text-decoration: overline;
+.navLinks {
+  font-size: 1.5rem;
+  height: inherit;
+  margin: 0rem 2rem;
+  font-weight: 650;
+  color: var(--lightSecond);
+  text-decoration: none;
 }
 
-
-.searchBarContainer input{
-    border: none;
-    height: 2.2rem;
-    width: 15rem;
-    border-radius: 0.5rem;
-    padding: 0 0.25rem;
-
+.navLinks:hover {
+  color: red;
+  text-decoration: overline;
 }
 
-.searchBarContainer button{
-    border: none;
-    height: 2.2rem;
-    width: 3rem;
-    margin: 0rem 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    >i{
-        color: #000;
-    }
-}
-.searchBarContainer button:hover{
-    background-color: var(--lightPrime);
+.searchBarContainer input {
+  border: none;
+  height: 2.2rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+  padding: 0 0.25rem;
 }
 
-
-
-#mainContainer{
-    background-color: #000;
-    margin: 0.5em;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-}
-
-.contentSwitcher{
-   border: 0.3rem solid white;
-   border-radius: 0.5rem;
-   background-color: #000;
-}
-
-.switcher{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #EEEEEE;
-    font-size: x-large;
-    font-weight: 500;
-}
-.switchName{
-    margin: 0 0.5rem;
-}
-
-.switches{
-    margin: 0.5rem 0.5rem;
-    padding: 0 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    
-}
-
-.switches:hover{
-    background-color: red;
-}
-
-.optionContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 0.5rem;
-}
-
-.filterContainer button{
-    border: none;
-    height: 2.2rem;
-    width: 3rem;
-    margin: 0rem 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-}
-
-
-.optionContainer button:hover{
-    background-color: var(--lightPrime);
-}
-
-.contenetContainer{
-    padding: 0.25rem;
-}
-.movieCardContainer{
-    padding: 0.25rem;
-}
-
-.movieCard{
-    width: 362px;
-    height: 502px;
-    margin: 25px;
-    border: 5px solid white;
-    border-radius: 0.5rem;
-    background-color: black;
-    position: relative;
-    overflow: hidden;
-}
-
-.movieCardContainer{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
-.cardImage{
-    width: 362px;
-    height: 492px;
-    z-index: 1;
-    transition: transform ease-out 0.7s;
-    >img{
-        width: 362px;
-        height: 492px;
-        
-    }
-
-}
-
-.movieDetails{
-    position: absolute;
-    border-radius: 0.5rem;
-    top: 85%;
-    width: 362px;
-    height: 492px;
-    background: #EEEEEE;
+.searchBarContainer button {
+  border: none;
+  height: 2.2rem;
+  width: 3rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  > i {
     color: #000;
-    transition: ease-out 0.7s;
-    padding: 0.5rem;
-    z-index: 2;
-    >.titleRating{
-        display: flex;
-        justify-content: space-between;
-        >p{
-            padding: 0.5rem;
-        }
+  }
+}
+.searchBarContainer button:hover {
+  background-color: var(--skyBlue);
+}
+
+#mainContainer {
+  background-color: #000;
+  margin: 0.5em;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.contentSwitcher {
+  border: 0.3rem solid white;
+  border-radius: 0.5rem;
+  background-color: #000;
+}
+
+.switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eeeeee;
+  font-size: x-large;
+  font-weight: 500;
+}
+.switchName {
+  margin: 0 0.5rem;
+}
+
+.switches {
+  margin: 0.5rem 0.5rem;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.switches:hover {
+  background-color: red;
+}
+
+.optionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+}
+
+.filterContainer button {
+  border: none;
+  height: 2.2rem;
+  width: 3rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.optionContainer button:hover {
+  background-color: var(--skyBlue);
+}
+
+.contenetContainer {
+  padding: 0.25rem;
+}
+.movieCardContainer {
+  padding: 0.25rem;
+}
+
+.movieCard {
+  width: 362px;
+  height: 502px;
+  margin: 25px;
+  border: 5px solid white;
+  border-radius: 0.5rem;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.movieCardContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.cardImage {
+  width: 362px;
+  height: 492px;
+  z-index: 1;
+  transition: transform ease-out 0.7s;
+  > img {
+    width: 362px;
+    height: 492px;
+  }
+}
+
+.movieDetails {
+  position: absolute;
+  border-radius: 0.5rem;
+  top: 85%;
+  width: 362px;
+  height: 492px;
+  background: #eeeeee;
+  color: #000;
+  transition: ease-out 0.7s;
+  padding: 0.5rem;
+  z-index: 2;
+  > .titleRating {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1.2rem 0;
+    > p {
+      padding: 0.5rem;
+      font-weight: 700;
     }
+  }
 }
 
-.title{
-    width: 80%;
+.title {
+  width: 80%;
 }
 
-.rating{
-    width: 20%;
+.rating {
+  width: 25%;
 }
 
-.movieCard:hover{
-    >.cardImage{
-        transform: scale(1.1);
-    }
+.movieCard:hover {
+  > .cardImage {
+    transform: scale(1.1);
+  }
 }
 
-.movieCard:hover{
-    >.movieDetails{
-        color: #EEEEEE;
-        top: 0;
-        background-color: #07070791;
-    }
-    
+.movieCard:hover {
+  > .movieDetails {
+    color: #eeeeee;
+    top: 0;
+    background-color: #07070791;
+  }
 }
 
+.paginationContainer {
+  background-color: #eeeeee;
+}
+
+.pagination {
+  list-style-type: none;
+}
+
+.pagination > a {
+  text-decoration: none;
+}

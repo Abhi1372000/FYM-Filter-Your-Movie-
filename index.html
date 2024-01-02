@@ -9,10 +9,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&family=Pixelify+Sans&display=swap');
     </style>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <!-- menus -->
+    <div id="filterMenu" class="hilightMenu">
+        <button id="okBtnClose">ok</button>
+    </div>
+    <div id="sortMenu" class="hilightMenu">
+        <button id="okBtnClose">ok</button>
+    </div>
+    <!-- menus -->
     <div id="navbar">
         <h1 class="navbarTitle">Filter Your Movie</h1>
         <div class="navbarContainer">
@@ -31,13 +41,20 @@
         <div class="optionContainer">
             <div class="contentSwitcher">
                 <div class="switcher">
-                    <div class="switchName"><p>Latest</p></div>
-                    <div class="moviesSwitch switches"><p>Movies</p></div>
-                    <div class="tvShowsSwitche switches"><p>TV-Shows</p></div>
+                    <div class="switchName">
+                        <p>Latest</p>
+                    </div>
+                    <div class="moviesSwitch switches">
+                        <p>Movies</p>
+                    </div>
+                    <div class="tvShowsSwitche switches">
+                        <p>TV-Shows</p>
+                    </div>
                 </div>
             </div>
             <div class="filterContainer">
-                <button id="optionSort"><i class="fa-solid fa-arrow-down-short-wide fa-2xl" style="color: #000000;"></i></button>
+                <button id="optionSort"><i class="fa-solid fa-arrow-down-short-wide fa-2xl"
+                        style="color: #000000;"></i></button>
                 <button id="optionFilter"><i class="fa-solid fa-filter fa-2xl" style="color: #000000;"></i></button>
             </div>
         </div>
@@ -56,6 +73,13 @@
                 </div> -->
             </div>
         </div>
+        <!-- <div class="paginationContainer" id="paginationContainer">
+            <ul class="pagination">
+                <li class="prevPages">prev</li>
+                <li class="currentPages">1</li>
+                <li class="nextPages">next</li>
+            </ul>
+        </div> -->
     </div>
 </body>
 
