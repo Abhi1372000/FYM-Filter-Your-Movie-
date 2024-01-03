@@ -240,14 +240,19 @@ body {
   }
 }
 
+/* pagination Container */
 .paginationContainer {
   background-color: #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.pagination {
-  list-style-type: none;
+.prevPage {
+  cursor: pointer;
+  margin-right: 1rem;
 }
-
-.pagination > a {
-  text-decoration: none;
+.nextPage {
+  cursor: pointer;
+  margin-left: 1rem;
 }
+/* pagination Container */

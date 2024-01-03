@@ -30,28 +30,43 @@ const body = document.querySelector("body");
 const tvSwitch = document.querySelector(".tvShowsSwitche");
 const moviesSwitch = document.querySelector(".moviesSwitch");
 const movieCardContainer = document.querySelector(".movieCardContainer");
-// const prevPageBtn = document.querySelector(".prevPages");
-// const nextPageBtn = document.querySelector(".nextPages");
-// const currentPageBtn = document.querySelector(".currentPages");
-const sortBtn = document.querySelector("#optionSort");
-const filterBtn = document.querySelector("#optionFilter");
-const sortMenu = document.querySelector("#sortMenu");
-const filterMenu = document.querySelector("#filterMenu");
-const okBtn = document.querySelector("#okBtnClose");
+
+// const sortBtn = document.querySelector("#optionSort");
+// const filterBtn = document.querySelector("#optionFilter");
+// const sortMenu = document.querySelector("#sortMenu");
+// const filterMenu = document.querySelector("#filterMenu");
+// const okBtn = document.querySelector("#okBtnClose");
+
+const prevPgEle = document.querySelector(".prevPage");
+const nextPgEle = document.querySelector(".nextPage");
+const currentPgEle = document.querySelector(".currentPage");
 
 let currentPage = 1;
 let nextPage = 2;
 let prevPage = 3;
 let totalPages = 100;
 
-function okBtnfun() {
-  if (filterMenu.style.display === "block") {
-    filterMenu.style.display = "none";
+// function okBtnfun() {
+//   if (filterMenu.style.display === "block") {
+//     filterMenu.style.display = "none";
+//   }
+//   if (sortMenu.style.display === "block") {
+//     sortMenu.style.display = "none";
+//   }
+// }
+
+nextPgEle.addEventListener("click", () => {
+  currentPage += 1;
+  fetchData();
+  currentPgEle.innerText = `${currentPage}`;
+});
+prevPgEle.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    fetchData();
+    currentPgEle.innerText = `${currentPage}`;
   }
-  if (sortMenu.style.display === "block") {
-    sortMenu.style.display = "none";
-  }
-}
+});
 
 function contentToRender() {
   if (contentSwitchFlag === true) {
@@ -81,14 +96,14 @@ moviesSwitch.addEventListener("click", () => {
   }
 });
 
-filterBtn.addEventListener("click", () => {
-  filterMenu.style.display = "block";
-});
-sortBtn.addEventListener("click", () => {
-  sortMenu.style.display = "block";
-});
+// filterBtn.addEventListener("click", () => {
+//   filterMenu.style.display = "block";
+// });
+// sortBtn.addEventListener("click", () => {
+//   sortMenu.style.display = "block";
+// });
 
-okBtn.addEventListener("click", okBtnfun);
+// okBtn.addEventListener("click", okBtnfun);
 
 function loadMOviesTOContent(data) {
   movieCardContainer.innerHTML = "";
@@ -135,7 +150,7 @@ async function fetchData() {
   // const apiUrl =  `${BASE_API}${endpoint}`;
 
   await axios
-    .get((URL = `${BASE_API}${endpoint}`), { headers })
+    .get((URL = `${BASE_API}${endpoint}${paging}${currentPage}`), { headers })
     .then((response) => {
       const result = response.data;
       console.log("The result", result);

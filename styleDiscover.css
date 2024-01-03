@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+
+:root {
+  --prime: #0f044c;
+  --second: #141e61;
+  --lightPrime: #787a91;
+  --lightSecond: #eeeeee;
+  --black: #000;
+  --blackII: #333333;
+  --skyBlue: #38bdf8;
+}
+
+body {
+  background-color: #333333;
+}
+
+#navbar {
+  margin: 0.5em;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--black);
+  color: #eeeeee;
+}
