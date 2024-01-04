@@ -31,12 +31,6 @@ const tvSwitch = document.querySelector(".tvShowsSwitche");
 const moviesSwitch = document.querySelector(".moviesSwitch");
 const movieCardContainer = document.querySelector(".movieCardContainer");
 
-// const sortBtn = document.querySelector("#optionSort");
-// const filterBtn = document.querySelector("#optionFilter");
-// const sortMenu = document.querySelector("#sortMenu");
-// const filterMenu = document.querySelector("#filterMenu");
-// const okBtn = document.querySelector("#okBtnClose");
-
 const prevPgEle = document.querySelector(".prevPage");
 const nextPgEle = document.querySelector(".nextPage");
 const currentPgEle = document.querySelector(".currentPage");
@@ -45,15 +39,6 @@ let currentPage = 1;
 let nextPage = 2;
 let prevPage = 3;
 let totalPages = 100;
-
-// function okBtnfun() {
-//   if (filterMenu.style.display === "block") {
-//     filterMenu.style.display = "none";
-//   }
-//   if (sortMenu.style.display === "block") {
-//     sortMenu.style.display = "none";
-//   }
-// }
 
 nextPgEle.addEventListener("click", () => {
   currentPage += 1;
@@ -95,15 +80,6 @@ moviesSwitch.addEventListener("click", () => {
     contentToRender();
   }
 });
-
-// filterBtn.addEventListener("click", () => {
-//   filterMenu.style.display = "block";
-// });
-// sortBtn.addEventListener("click", () => {
-//   sortMenu.style.display = "block";
-// });
-
-// okBtn.addEventListener("click", okBtnfun);
 
 function loadMOviesTOContent(data) {
   movieCardContainer.innerHTML = "";

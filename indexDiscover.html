@@ -10,17 +10,46 @@
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&family=Pixelify+Sans&display=swap');
     </style>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-------StyleSheet------->
     <link rel="stylesheet" href="./styleDiscover.css">
     <!-------StyleSheet------->
 </head>
 
 <body>
+    <!-- menus -->
+    <div id="filterMenu" class="hilightMenu">
+        <button class="okBtnClose">Filter</button>
+    </div>
+    <div id="sortMenu" class="hilightMenu">
+        <button class="sortBtn">Sort</button>
+    </div>
+    <!-- menus -->
     <section class="heading">
         <div id="navbar">
             <h1 class="navbarTitle">Discover Your Movie</h1>
         </div>
     </section>
+    <div class="optionsContainer">
+        <div class="contentSwitcher">
+            <div class="switcher">
+                <div class="moviesSwitch switches">
+                    <p>Movies</p>
+                </div>
+                <div class="tvShowsSwitche switches">
+                    <p>TV-Shows</p>
+                </div>
+            </div>
+        </div>
+        <div class="filterContainer">
+            <button id="optionSort"><i class="fa-solid fa-arrow-down-short-wide fa-2xl"
+                    style="color: #000000;"></i></button>
+            <button id="optionFilter"><i class="fa-solid fa-filter fa-2xl" style="color: #000000;"></i></button>
+        </div>
+    </div>
     <section>
         <div class="contenetContainer">
             <div class="movieCardContainer">
@@ -39,5 +68,6 @@
         </div>
     </section>
 </body>
+<script src="./movieDiscoverScript.js"></script>
 
 </html>
