@@ -100,3 +100,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 /* higlightingmenus start */
+
+.contentRenderContainer {
+  background-color: #000;
+}

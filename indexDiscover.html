@@ -16,6 +16,7 @@
 
     <!-------StyleSheet------->
     <link rel="stylesheet" href="./styleDiscover.css">
+    <link rel="stylesheet" href="./comman.render.css">
     <!-------StyleSheet------->
 </head>
 
@@ -33,6 +34,7 @@
             <h1 class="navbarTitle">Discover Your Movie</h1>
         </div>
     </section>
+
     <div class="optionsContainer">
         <div class="contentSwitcher">
             <div class="switcher">
@@ -50,7 +52,8 @@
             <button id="optionFilter"><i class="fa-solid fa-filter fa-2xl" style="color: #000000;"></i></button>
         </div>
     </div>
-    <section>
+
+    <section class="contentRenderContainer">
         <div class="contenetContainer">
             <div class="movieCardContainer">
                 <!-- <div class="movieCard">
@@ -66,8 +69,14 @@
                 </div> -->
             </div>
         </div>
+        <div class="paginationContainer" id="paginationContainer">
+            <div class="prevPage paginationBtnStyle">prev</div>
+            <div class="currentPage">1</div>
+            <div class="nextPage paginationBtnStyle">next</div>
+        </div>
     </section>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./movieDiscoverScript.js"></script>
 
 </html>

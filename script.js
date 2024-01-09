@@ -11,21 +11,6 @@ const headers = {
 
 let contentSwitchFlag = true;
 
-async function fetchGenere() {
-  const endpoint = "/genre/movie/list";
-  // const apiUrl =  `${BASE_API}${endpoint}`;
-  let result = [];
-  await axios
-    .get(`${BASE_API}${endpoint}`, { headers })
-    .then((response) => {
-      console.log(response.data.genres);
-    })
-    .catch((error) => {
-      result = ("genres", error);
-    });
-  return result;
-}
-
 const body = document.querySelector("body");
 const tvSwitch = document.querySelector(".tvShowsSwitche");
 const moviesSwitch = document.querySelector(".moviesSwitch");
@@ -145,7 +130,6 @@ async function fetchData() {
 // const cardImg = document.getElementsByClassName("cardImage")
 
 function onWindowLoad() {
-  fetchGenere();
   contentToRender();
 }
 
