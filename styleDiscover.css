@@ -98,9 +98,16 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  z-index: 3;
 }
 /* higlightingmenus start */
 
 .contentRenderContainer {
   background-color: #000;
+}
+
+.fltrOption {
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 600;
 }

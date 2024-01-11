@@ -5,30 +5,158 @@ const API_KEY =
 const BASE_API = "https://api.themoviedb.org/3";
 const IMAGE_BASE_API = `https://image.tmdb.org/t/p/w500`;
 const paging = "?page=";
+const genre = `&with_genres=`;
 
 const headers = {
   accept: "application/json",
   Authorization: `Bearer ${API_KEY}`,
 };
 
-async function fetchGenere() {
-  const endpoint = "/genre/movie/list";
-  // const apiUrl =  `${BASE_API}${endpoint}`;
-  let result = [];
-  await axios
-    .get(`${BASE_API}${endpoint}`, { headers })
-    .then((response) => {
-      result = response.data.genres;
-    })
-    .catch((error) => {
-      result = ("genres", error);
-    });
-  return result;
-}
+const movieGenersArr = [
+  {
+    id: 28,
+    name: "Action",
+  },
+  {
+    id: 12,
+    name: "Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 80,
+    name: "Crime",
+  },
+  {
+    id: 99,
+    name: "Documentary",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+  {
+    id: 10751,
+    name: "Family",
+  },
+  {
+    id: 14,
+    name: "Fantasy",
+  },
+  {
+    id: 36,
+    name: "History",
+  },
+  {
+    id: 27,
+    name: "Horror",
+  },
+  {
+    id: 10402,
+    name: "Music",
+  },
+  {
+    id: 9648,
+    name: "Mystery",
+  },
+  {
+    id: 10749,
+    name: "Romance",
+  },
+  {
+    id: 878,
+    name: "Science Fiction",
+  },
+  {
+    id: 10770,
+    name: "TV Movie",
+  },
+  {
+    id: 53,
+    name: "Thriller",
+  },
+  {
+    id: 10752,
+    name: "War",
+  },
+  {
+    id: 37,
+    name: "Western",
+  },
+];
 
-let geners = fetchGenere();
-
-// console.log("list gene", geners);
+const seriesGenersArr = [
+  {
+    id: 10759,
+    name: "Action & Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 80,
+    name: "Crime",
+  },
+  {
+    id: 99,
+    name: "Documentary",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+  {
+    id: 10751,
+    name: "Family",
+  },
+  {
+    id: 10762,
+    name: "Kids",
+  },
+  {
+    id: 9648,
+    name: "Mystery",
+  },
+  {
+    id: 10763,
+    name: "News",
+  },
+  {
+    id: 10764,
+    name: "Reality",
+  },
+  {
+    id: 10765,
+    name: "Sci-Fi & Fantasy",
+  },
+  {
+    id: 10766,
+    name: "Soap",
+  },
+  {
+    id: 10767,
+    name: "Talk",
+  },
+  {
+    id: 10768,
+    name: "War & Politics",
+  },
+  {
+    id: 37,
+    name: "Western",
+  },
+];
 
 let contentSwitchFlag = true;
 
@@ -47,6 +175,7 @@ const filterBtn = document.querySelector("#optionFilter");
 const filterMenu = document.querySelector("#filterMenu");
 const filterBtnClose = document.querySelector(".okBtnClose");
 const sortBtnClose = document.querySelector(".sortBtn");
+const generLst = document.querySelector(".generList");
 
 const prevPgEle = document.querySelector(".prevPage");
 const nextPgEle = document.querySelector(".nextPage");
@@ -75,8 +204,18 @@ sortBtn.addEventListener("click", () => {
   }
 });
 
+let selectedGenres = [];
+
 function okBtnfun() {
+  let selectedGenres = [];
   if (filterMenu.style.display === "block") {
+    const dataGenres = document.getElementsByClassName("generCheckBox");
+    Object.values(dataGenres).forEach((gene) => {
+      if (gene.checked) {
+        selectedGenres.push(gene.value);
+      }
+    });
+    fetchData();
     filterMenu.style.display = "none";
   }
 }
@@ -117,6 +256,17 @@ moviesSwitch.addEventListener("click", () => {
   }
 });
 
+function loadGenersInMenu() {
+  movieGenersArr.forEach((ele) => {
+    const generEle = document.createElement("label");
+    const breakTag = document.createElement("br");
+    generEle.setAttribute("class", "generName fltrOption");
+    generEle.innerHTML = `<input type="checkbox" class="generCheckBox" value = "${ele.id}" id="${ele.name}${ele.id}"> ${ele.name}`;
+    generLst.appendChild(generEle);
+    generLst.appendChild(breakTag);
+  });
+}
+
 function loadMOviesTOContent(data) {
   movieCardContainer.innerHTML = "";
   console.log("this load function", data, typeof data);
@@ -156,10 +306,17 @@ async function fetchData() {
     endpoint = "/discover/tv";
   }
 
-  // const apiUrl =  `${BASE_API}${endpoint}`;
+  let apiUrl = `${BASE_API}${endpoint}${paging}${currentPage}`;
+  if (selectedGenres.length !== 0) {
+    apiUrl = `${BASE_API}${endpoint}${paging}${currentPage}${genre}${selectedGenres.join(
+      ","
+    )}`;
+  }
+
+  console.log("URL", apiUrl);
 
   await axios
-    .get((URL = `${BASE_API}${endpoint}${paging}${currentPage}`), { headers })
+    .get((URL = apiUrl), { headers })
     .then((response) => {
       const result = response.data;
       console.log("The result", result);
@@ -174,8 +331,8 @@ async function fetchData() {
 }
 
 function onWindowLoad() {
-  fetchGenere();
   contentToRender();
+  loadGenersInMenu();
 }
 
 window.onload = onWindowLoad;
