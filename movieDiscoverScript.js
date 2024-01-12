@@ -204,8 +204,6 @@ sortBtn.addEventListener("click", () => {
   }
 });
 
-let selectedGenres = [];
-
 function okBtnfun() {
   let selectedGenres = [];
   if (filterMenu.style.display === "block") {
@@ -215,7 +213,7 @@ function okBtnfun() {
         selectedGenres.push(gene.value);
       }
     });
-    fetchData();
+    fetchData(selectedGenres);
     filterMenu.style.display = "none";
   }
 }
@@ -293,12 +291,9 @@ function loadMOviesTOContent(data) {
 
     movieCardContainer.appendChild(movieCard);
   });
-  // data.array.forEach(element => {
-
-  // });
 }
 
-async function fetchData() {
+async function fetchData(seletedGenresList) {
   let endpoint = "";
   if (contentSwitchFlag) {
     endpoint = "/discover/movie";
@@ -307,27 +302,37 @@ async function fetchData() {
   }
 
   let apiUrl = `${BASE_API}${endpoint}${paging}${currentPage}`;
-  if (selectedGenres.length !== 0) {
-    apiUrl = `${BASE_API}${endpoint}${paging}${currentPage}${genre}${selectedGenres.join(
-      ","
-    )}`;
+  if (seletedGenresList !== undefined) {
+    if (seletedGenresList.length !== 0) {
+      apiUrl = `${BASE_API}${endpoint}${paging}${currentPage}${genre}${seletedGenresList.join(
+        ","
+      )}`;
+    }
   }
 
   console.log("URL", apiUrl);
 
-  await axios
-    .get((URL = apiUrl), { headers })
-    .then((response) => {
-      const result = response.data;
-      console.log("The result", result);
-      console.log(URL);
-      if (result.results.length !== 0) {
-        loadMOviesTOContent(result);
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-    });
+  const callingApi = await callApi(apiUrl);
+  console.log("calling api", callingApi);
+
+  if (callingApi !== 0 && callingApi !== null) {
+    loadMOviesTOContent(callingApi);
+  } else {
+    console.log();
+    movieCardContainer.innerHTML = "";
+    const content = doument.createElement("h1");
+    content.textContent = "Data Not Fetched";
+    movieCardContainer.appendChild(content);
+  }
+}
+
+async function callApi(URL) {
+  try {
+    let result = await axios.get(URL, { headers });
+    return result.data;
+  } catch (err) {
+    return null;
+  }
 }
 
 function onWindowLoad() {
