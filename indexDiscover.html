@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Filter Your Movie</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&family=Pixelify+Sans&display=swap');
     </style>
@@ -22,13 +22,23 @@
 <body>
     <!-- menus -->
     <div id="filterMenu" class="hilightMenu">
+        <h2 class="fltrOption" style="font-size: 1.2rem;">Genre</h2>
         <div class="generList">
-            <h2 class="fltrOption" style="font-size: 1.2rem;">Gener</h2>
+
             <!-- <label class="generName fltrOption"><input type="checkbox"> Action</label> -->
         </div>
         <button class="okBtnClose">Filter</button>
     </div>
     <div id="sortMenu" class="hilightMenu">
+        <h2>Srot</h2>
+        <div>
+            <label class=""><input type="radio" class="sortCheckBox" name="sortBy" id="SortByPopularityIncreasing"> Sort
+                By Popularity
+                Increasing</label><br>
+            <label class=""><input type="radio" class="sortCheckBox" name="sortBy" id="SortByPopularityDecreasing"> Sort
+                By Popularity
+                Decreasing</label>
+        </div>
         <button class="sortBtn">Sort</button>
     </div>
     <!-- menus -->

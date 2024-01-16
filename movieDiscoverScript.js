@@ -199,9 +199,7 @@ filterBtn.addEventListener("click", () => {
 });
 
 sortBtn.addEventListener("click", () => {
-  if (filterMenu.style.display === "none") {
-    sortMnu.style.display = "block";
-  }
+  sortMnu.style.display = "block";
 });
 
 function okBtnfun() {
@@ -222,6 +220,7 @@ filterBtnClose.addEventListener("click", okBtnfun);
 
 sortBtnClose.addEventListener("click", () => {
   if (sortMnu.style.display === "block") {
+    fetchData();
     sortMnu.style.display = "none";
   }
 });
@@ -232,11 +231,13 @@ function contentToRender() {
     moviesSwitch.style.backgroundColor = "red";
     tvSwitch.style.backgroundColor = "black";
     fetchData();
+    loadGenersInMenu();
   } else {
     console.log("tv-Show");
     tvSwitch.style.backgroundColor = "red";
     moviesSwitch.style.backgroundColor = "black";
     fetchData();
+    loadGenersInMenu();
   }
 }
 
@@ -255,14 +256,28 @@ moviesSwitch.addEventListener("click", () => {
 });
 
 function loadGenersInMenu() {
-  movieGenersArr.forEach((ele) => {
-    const generEle = document.createElement("label");
-    const breakTag = document.createElement("br");
-    generEle.setAttribute("class", "generName fltrOption");
-    generEle.innerHTML = `<input type="checkbox" class="generCheckBox" value = "${ele.id}" id="${ele.name}${ele.id}"> ${ele.name}`;
-    generLst.appendChild(generEle);
-    generLst.appendChild(breakTag);
-  });
+  if (contentSwitchFlag) {
+    generLst.innerHTML = "";
+    movieGenersArr.forEach((ele) => {
+      const generEle = document.createElement("label");
+      const breakTag = document.createElement("br");
+      generEle.setAttribute("class", "generName fltrOption");
+      generEle.innerHTML = `<input type="checkbox" class="generCheckBox" value = "${ele.id}" id="${ele.name}${ele.id}"> ${ele.name}`;
+      generLst.appendChild(generEle);
+      generLst.appendChild(breakTag);
+    });
+  }
+  if (!contentSwitchFlag) {
+    generLst.innerHTML = "";
+    seriesGenersArr.forEach((ele) => {
+      const generEle = document.createElement("label");
+      const breakTag = document.createElement("br");
+      generEle.setAttribute("class", "generName fltrOption");
+      generEle.innerHTML = `<input type="checkbox" class="generCheckBox" value = "${ele.id}" id="${ele.name}${ele.id}"> ${ele.name}`;
+      generLst.appendChild(generEle);
+      generLst.appendChild(breakTag);
+    });
+  }
 }
 
 function loadMOviesTOContent(data) {
@@ -308,6 +323,13 @@ async function fetchData(seletedGenresList) {
         ","
       )}`;
     }
+  }
+
+  // if (document.getElementById("SortByPopularityIncreasing").checked === true) {
+  //   apiUrl += `&sort_by=popularity.desc`;
+  // }
+  if (document.getElementById("SortByPopularityDecreasing").checked === true) {
+    apiUrl += `&sort_by=popularity.asc`;
   }
 
   console.log("URL", apiUrl);
