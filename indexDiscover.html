@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Your Movie</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&family=Pixelify+Sans&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-------StyleSheet------->
+    <link rel="stylesheet" href="./styleDiscover.css">
+    <link rel="stylesheet" href="./comman.render.css">
+    <!-------StyleSheet------->
+</head>
+
+<body>
+    <!-- menus -->
+    <div id="filterMenu" class="hilightMenu">
+        <h2 class="fltrOption" style="font-size: 1.2rem;">Genre</h2>
+        <div class="generList">
+
+            <!-- <label class="generName fltrOption"><input type="checkbox"> Action</label> -->
+        </div>
+        <button class="okBtnClose">Filter</button>
+    </div>
+    <div id="sortMenu" class="hilightMenu">
+        <h2>Srot</h2>
+        <div>
+            <label class=""><input type="radio" class="sortCheckBox" name="sortBy" id="SortByPopularityIncreasing"> Sort
+                By Popularity
+                Increasing</label><br>
+            <label class=""><input type="radio" class="sortCheckBox" name="sortBy" id="SortByPopularityDecreasing"> Sort
+                By Popularity
+                Decreasing</label>
+        </div>
+        <button class="sortBtn">Sort</button>
+    </div>
+    <!-- menus -->
+    <section class="heading">
+        <div id="navbar">
+            <h1 class="navbarTitle">Discover Your Movie</h1>
+        </div>
+    </section>
+
+    <div class="optionsContainer">
+        <div class="contentSwitcher">
+            <div class="switcher">
+                <div class="moviesSwitch switches">
+                    <p>Movies</p>
+                </div>
+                <div class="tvShowsSwitche switches">
+                    <p>TV-Shows</p>
+                </div>
+            </div>
+        </div>
+        <div class="filterContainer">
+            <button id="optionSort"><i class="fa-solid fa-arrow-down-short-wide fa-2xl"
+                    style="color: #000000;"></i></button>
+            <button id="optionFilter"><i class="fa-solid fa-filter fa-2xl" style="color: #000000;"></i></button>
+        </div>
+    </div>
+
+    <section class="contentRenderContainer">
+        <div class="contenetContainer">
+            <div class="movieCardContainer">
+                <!-- <div class="movieCard">
+                    <div class="movieDetails">
+                        <div class="titleRating">
+                            <h2>Movie Title</h2>
+                            <h2><i class="fa-solid fa-star fa-lg" style="color: #fab005;"></i>9.8</h2>
+                        </div>
+                    </div>
+                    <div class="cardImage">
+                        <img src="stack.jpg" alt="">
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="paginationContainer" id="paginationContainer">
+            <div class="prevPage paginationBtnStyle">prev</div>
+            <div class="currentPage">1</div>
+            <div class="nextPage paginationBtnStyle">next</div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./movieDiscoverScript.js"></script>
+
+</html>

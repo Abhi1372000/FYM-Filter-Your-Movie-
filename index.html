@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Filter Your Movie</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./comman.render.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&family=Pixelify+Sans&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    
+    <div id="navbar">
+        <h1 class="navbarTitle">Filter Your Movie</h1>
+        <div class="navbarContainer">
+            <nav class="nav">
+                <a href="#" class="navLinks">Home</a>
+                <!-- <a href="#" class="navLinks">Movies</a>
+                <a href="#" class="navLinks">TVShows</a> -->
+                <a href="./indexDiscover.html" class="navLinks target">Discover</a>
+            </nav>
+            <div class="searchBarContainer">
+                <input type="text" name="searchBar" placeholder="Search">
+                <button><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <div class="optionContainer">
+            <div class="contentSwitcher">
+                <div class="switcher">
+                    <div class="switchName">
+                        <p>Latest</p>
+                    </div>
+                    <div class="moviesSwitch switches">
+                        <p>Movies</p>
+                    </div>
+                    <div class="tvShowsSwitche switches">
+                        <p>TV-Shows</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contenetContainer">
+            <div class="movieCardContainer">
+                <!-- <div class="movieCard">
+                    <div class="movieDetails">
+                        <div class="titleRating">
+                            <h2>Movie Title</h2>
+                            <h2><i class="fa-solid fa-star fa-lg" style="color: #fab005;"></i>9.8</h2>
+                        </div>
+                    </div>
+                    <div class="cardImage">
+                        <img src="stack.jpg" alt="">
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="paginationContainer" id="paginationContainer">
+            <div class="prevPage paginationBtnStyle">prev</div>
+            <div class="currentPage">1</div>
+            <div class="nextPage paginationBtnStyle">next</div>
+        </div>
+    </div>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>
+
 </html>

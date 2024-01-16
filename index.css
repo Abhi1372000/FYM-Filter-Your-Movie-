@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+
+:root {
+  --prime: #0f044c;
+  --second: #141e61;
+  --lightPrime: #787a91;
+  --lightSecond: #eeeeee;
+  --black: #000;
+  --blackII: #333333;
+  --skyBlue: #38bdf8;
+}
+
+body {
+  background-color: var(--blackII);
+}
+
+#navbar {
+  margin: 0.5em;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black);
+}
+
+.navbarTitle {
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  background-color: var(--skyBlue);
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLinks {
+  font-size: 1.5rem;
+  height: inherit;
+  margin: 0rem 2rem;
+  font-weight: 650;
+  color: var(--lightSecond);
+  text-decoration: none;
+}
+
+.navLinks:hover {
+  color: red;
+  text-decoration: overline;
+}
+
+.searchBarContainer input {
+  border: none;
+  height: 2.2rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+  padding: 0 0.25rem;
+}
+
+.searchBarContainer button {
+  border: none;
+  height: 2.2rem;
+  width: 3rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  > i {
+    color: #000;
+  }
+}
+.searchBarContainer button:hover {
+  background-color: var(--skyBlue);
+}
+
+#mainContainer {
+  background-color: #000;
+  margin: 0.5em;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.contentSwitcher {
+  border: 0.3rem solid white;
+  border-radius: 0.5rem;
+  background-color: #000;
+}
+
+.switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eeeeee;
+  font-size: x-large;
+  font-weight: 500;
+}
+.switchName {
+  margin: 0 0.5rem;
+}
+
+.switches {
+  margin: 0.5rem 0.5rem;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.switches:hover {
+  background-color: red;
+}
+
+.optionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+}
+
+.filterContainer button {
+  border: none;
+  height: 2.2rem;
+  width: 3rem;
+  margin: 0rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.optionContainer button:hover {
+  background-color: var(--skyBlue);
+}
